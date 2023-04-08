@@ -44,7 +44,7 @@ def THROW_OUT_ONES(top, bottom):
 	return top, bottom, use	
 
 
-def simulation(trials = 10000, cycleLogic = THREES_ONLY, cycleLogicName = "with only threes"):
+def simulation(trials = 10000, cycleLogic = THREES_ONLY, cycleLogicName = " with only threes"):
 	totals = [0, 0, 0]
 	currentBag = list(SKILL_BAG)
 	bottom = None
@@ -56,8 +56,9 @@ def simulation(trials = 10000, cycleLogic = THREES_ONLY, cycleLogicName = "with 
 			[top], currentBag = drawBag(currentBag, 1)
 		top, bottom, use = cycleLogic(top, bottom)
 		totals[use - 1] += 1
-	print("Out of %s trials, Skill 1 was used %s times, Skill 2 was used %s times, and Skill 3 was used %s times" % (trials, totals[0], totals[1], totals[2]))
+	print("Out of %s trials%s, Skill 1 was used %s times, Skill 2 was used %s times, and Skill 3 was used %s times" % 
+				(trials, cycleLogicName, totals[0], totals[1], totals[2]))
 
-simulation(100000, THREES_ONLY, "with as many Skill 3s as possible")
-simulation(100000, TWOS_ONLY, "with as many Skill 2s as possible")
-simulation(100000, THROW_OUT_ONES, "with as many Skill 2s and 3s as possible")
+simulation(100000, THREES_ONLY, " with as many Skill 3s as possible")
+simulation(100000, TWOS_ONLY, " with as many Skill 2s as possible")
+simulation(100000, THROW_OUT_ONES, " with as many Skill 2s and 3s as possible")
